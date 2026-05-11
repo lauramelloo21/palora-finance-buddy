@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as HistoricoRouteImport } from './routes/historico'
+import { Route as DicasRouteImport } from './routes/dicas'
 import { Route as AnaliseRouteImport } from './routes/analise'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -22,6 +23,11 @@ const ServicosRoute = ServicosRouteImport.update({
 const HistoricoRoute = HistoricoRouteImport.update({
   id: '/historico',
   path: '/historico',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DicasRoute = DicasRouteImport.update({
+  id: '/dicas',
+  path: '/dicas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AnaliseRoute = AnaliseRouteImport.update({
@@ -38,12 +44,14 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/analise': typeof AnaliseRoute
+  '/dicas': typeof DicasRoute
   '/historico': typeof HistoricoRoute
   '/servicos': typeof ServicosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/analise': typeof AnaliseRoute
+  '/dicas': typeof DicasRoute
   '/historico': typeof HistoricoRoute
   '/servicos': typeof ServicosRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/analise': typeof AnaliseRoute
+  '/dicas': typeof DicasRoute
   '/historico': typeof HistoricoRoute
   '/servicos': typeof ServicosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/analise' | '/historico' | '/servicos'
+  fullPaths: '/' | '/analise' | '/dicas' | '/historico' | '/servicos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/analise' | '/historico' | '/servicos'
-  id: '__root__' | '/' | '/analise' | '/historico' | '/servicos'
+  to: '/' | '/analise' | '/dicas' | '/historico' | '/servicos'
+  id: '__root__' | '/' | '/analise' | '/dicas' | '/historico' | '/servicos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AnaliseRoute: typeof AnaliseRoute
+  DicasRoute: typeof DicasRoute
   HistoricoRoute: typeof HistoricoRoute
   ServicosRoute: typeof ServicosRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/historico'
       fullPath: '/historico'
       preLoaderRoute: typeof HistoricoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dicas': {
+      id: '/dicas'
+      path: '/dicas'
+      fullPath: '/dicas'
+      preLoaderRoute: typeof DicasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/analise': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AnaliseRoute: AnaliseRoute,
+  DicasRoute: DicasRoute,
   HistoricoRoute: HistoricoRoute,
   ServicosRoute: ServicosRoute,
 }
