@@ -75,11 +75,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Palora Finance — Controle financeiro inteligente para empresas" },
       { name: "description", content: "Palora Finance ajuda empresas a controlar, analisar e planejar suas finanças com tecnologia, segurança e sofisticação." },
       { name: "author", content: "Palora Finance" },
-      { property: "og:title", content: "Palora Finance" },
-      { property: "og:description", content: "Organize hoje. Cresça amanhã." },
+      { property: "og:title", content: "Palora Finance — Controle financeiro inteligente para empresas" },
+      { property: "og:description", content: "Palora Finance ajuda empresas a controlar, analisar e planejar suas finanças com tecnologia, segurança e sofisticação." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Palora Finance — Controle financeiro inteligente para empresas" },
+      { name: "twitter:description", content: "Palora Finance ajuda empresas a controlar, analisar e planejar suas finanças com tecnologia, segurança e sofisticação." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/424c8ca0-857c-4107-9dee-bebedd80c7ff/id-preview-5e357f72--d35b3d30-3286-42f1-b878-43b6e14a1879.lovable.app-1778517997574.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/424c8ca0-857c-4107-9dee-bebedd80c7ff/id-preview-5e357f72--d35b3d30-3286-42f1-b878-43b6e14a1879.lovable.app-1778517997574.png" },
     ],
     links: [
       {
