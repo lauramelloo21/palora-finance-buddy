@@ -1,12 +1,12 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
-  Outlet,
   Link,
   createRootRouteWithContext,
   useRouter,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { Layout } from "@/components/Layout";
 
 import appCss from "../styles.css?url";
 
@@ -72,11 +72,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Palora Finance — Controle financeiro inteligente para empresas" },
+      { name: "description", content: "Palora Finance ajuda empresas a controlar, analisar e planejar suas finanças com tecnologia, segurança e sofisticação." },
+      { name: "author", content: "Palora Finance" },
+      { property: "og:title", content: "Palora Finance" },
+      { property: "og:description", content: "Organize hoje. Cresça amanhã." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
@@ -113,7 +113,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <Layout />
     </QueryClientProvider>
   );
 }
