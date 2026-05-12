@@ -29,6 +29,20 @@ export function clearHistory() {
   localStorage.removeItem(KEY);
 }
 
+export function deleteRecord(id: string) {
+  const list = getHistory().filter((r) => r.id !== id);
+  localStorage.setItem(KEY, JSON.stringify(list));
+}
+
+export function exportCSV(records: FinanceRecord[]): string {
+  const header = "Data;Receita;Despesas;Lucro;Status";
+  const rows = records.map(
+    (r) =>
+      `${new Date(r.date).toLocaleDateString("pt-BR")};${r.revenue.toFixed(2)};${r.expenses.toFixed(2)};${r.profit.toFixed(2)};${r.status}`,
+  );
+  return [header, ...rows].join("\n");
+}
+
 export function statusFor(profit: number, revenue: number): FinanceStatus {
   if (profit < 0) return "bad";
   if (revenue === 0) return "warning";
