@@ -7,7 +7,6 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
-import { AuthGate } from "@/components/AuthGate";
 
 import appCss from "../styles.css?url";
 
@@ -118,9 +117,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthGate>
-        <Layout />
-      </AuthGate>
+      <Layout />
     </QueryClientProvider>
   );
 }
